@@ -1,0 +1,15 @@
+Code by Sara del Pozo Ortiz at Universitat Autònoma de Barcelona
+
+1. Basics:
+
+  1.1. The Mahtematica notebook is the .nb file, you need mathematica installed with a working license to use it
+    a. In order to expand a cell and see the outputs it yields, double click the black arrow pointing down on the rightmost side of the notebook.
+    b. Even though these values are shown, they are not stored into the variables. To restore them and operate with them, execute the FIRST and LAST lines of code. (state.mx must be in the same folder as the .nb file)
+    c. After modifying and/or using the notebook, one can store the new values of any variables using the DumpSave cell. This will OVERWRITE the current state.mx, if it is present in the same folder as the .nb file.
+
+  1.2. IN CASE YOU DON?T HAVE MATHEMATICA, all the data can be found on .csv files, which python can turn into arrays, or excel can (kind of) read:
+    a. Mth2-qmatrix.csv: Integrals necessary for Q_V (position correlator matrices) 
+    b. Mth2-pmatrix.csv: Integrals necessary for P_V (momentum correlator matrices) 
+    c. Mth2-smatrix.csv: Computed values for the entropy, ordered from l=1 to l=100
+
+2. Description of the code:
