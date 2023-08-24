@@ -13,3 +13,26 @@ Code by Sara del Pozo Ortiz at Universitat Autònoma de Barcelona
     c. Mth2-smatrix.csv: Computed values for the entropy, ordered from l=1 to l=100
 
 2. Description of the code:
+
+  2.1. 
+    a. We define the integrals needed to build the Q_V and P_V matrices, using Gauss-Kronrod numerical integration.
+      We deal with the singularity at the origin in Q by avoiding a disk of radius η = 10−7 (can be changed), and using an approximation there.
+    b. We set the maximum value of l that we want to simulate, lmax, to 100.
+      This can be changed, but one must keep in mind that the simulation will likely already take days for this value.
+
+  2.2. We compute the integrals for all the necessary values of the indices and store them in arrays.
+      These are NOT the matrices Q, P of the whole system. They are merely the arrays which store the values that, when arranged properly, will constitute Q_V , P_V.
+
+  2.3. We define, **for a given value of l** the functions that compute:
+    a. For an integer m, the coordinates associated to it.
+    b. For two integers m, n, the absolute value of the difference in their coordinates.
+    c. The matrices Q_V and P_V, from the integrals previously computed and stored, using (4.19).
+    d. The eigenvalues of C, sifted to those strictly greater than 1/2, in order to prevent problems when computing the logarithm.
+    e. The entanglement entropy
+
+  2.4. For all values of l up to lmax, we compute the entropy and store it in an array, along with the corresponding value of l.
+    This is the most computationally expensive step, so it is separated into 10 steps, to allow the user to free the computer in between runs.
+    To store the state of the notebook in order to quickly recover the variables, the user can execute the first and second-to-last lines of code.
+    To recover said variables, execute the first and last lines of code. The state after the entire simulation is provided in the Git folder.
+
+  2.5. We fit the simulated data to its expected form, and recover the optimal values of the parameters, and the R^2 and adjusted R^2 of the fit, to measure its goodness
